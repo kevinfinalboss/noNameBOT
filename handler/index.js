@@ -29,7 +29,6 @@ const loadEvents = async function (client) {
     }
 }
 
-//Carregar comandos de prefixo
 const loadCommands = async function (client) {
     const commandFolders = fs.readdirSync("./commands");
     for (const folder of commandFolders) {
@@ -58,7 +57,6 @@ const loadCommands = async function (client) {
     }
 }
 
-//Carregar slashcommands
 const loadSlashCommands = async function (client) {
     let slash = []
 
@@ -83,7 +81,6 @@ const loadSlashCommands = async function (client) {
     }
 
     client.on("ready", async() => {
-        // SlashCommands em servidor específico
          await client.guilds.cache
             .get(config.Guild_ID)
             .commands.set(slash);
