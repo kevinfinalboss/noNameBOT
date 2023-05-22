@@ -232,7 +232,7 @@ module.exports = {
                 .setDescription("Seu painel de tickets já foi excluído!")
                 .addFields(
                   {
-                    name: "<:Slash:1088996088712794162> uSAR",
+                    name: "<:Slash:1088996088712794162> Usar",
                     value: "<:icon_reply:1088996218283229184>  /tickets setup",
                     inline: true,
                   },
