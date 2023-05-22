@@ -1,4 +1,4 @@
-const fs = require("node:fs");
+const fs = require("fs");
 const chalk = require("chalk");
 const config = require('../Config/config.json');
 
@@ -81,12 +81,7 @@ const loadSlashCommands = async function (client) {
     }
 
     client.on("ready", async() => {
-         await client.guilds.cache
-            .get(config.Guild_ID)
-            .commands.set(slash);
-
-        // SlashCommands global
-       // await client.application.commands.set(slash)
+        await client.application.commands.set(slash)
     })
 }
 
