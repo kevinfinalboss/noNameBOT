@@ -28,9 +28,13 @@ async function updateApplicationStatus(client) {
       if (response.data.status === 'success') {
         const status = response.data.response;
 
+        const uptime = status.uptime ? Math.floor(status.uptime / 1000) : 0;
+        const minutes = Math.floor(uptime / 60);
+        
         const embed = new EmbedBuilder()
           .setColor('#2f3136')
           .setTitle('Status da aplicação: IP-Monitoring')
+          .setImage('https://cdn.dribbble.com/users/662779/screenshots/5122311/media/29ad313d90c405edb25c5fac6e40a899.gif')
           .addFields(
             { name: '💻 CPU', value: status.cpu ? status.cpu.toString() : 'N/A' },
             { name: '🧠 RAM', value: status.ram ? status.ram.toString() : 'N/A' },
@@ -38,7 +42,7 @@ async function updateApplicationStatus(client) {
             { name: '💾 Armazenamento', value: status.storage },
             { name: '🌐 Rede', value: status.network ? status.network.total : 'N/A' },
             { name: '🔍 Requisições', value: status.requests ? status.requests.toString() : 'N/A' },
-            { name: '⏰ Uptime', value: status.uptime ? status.uptime.toString() : 'N/A' }
+            { name: '⏰ Uptime', value: `${minutes} minutos` }
           )
           .setTimestamp()
           .setFooter({
