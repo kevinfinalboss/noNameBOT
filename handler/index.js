@@ -2,7 +2,6 @@ const fs = require("fs");
 const chalk = require("chalk");
 const config = require('../Config/config.json');
 
-//Carregar eventos
 const loadEvents = async function (client) {
     const eventFolders = fs.readdirSync("./events");
     for (const folder of eventFolders) {
