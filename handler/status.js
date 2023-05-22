@@ -30,18 +30,22 @@ async function updateApplicationStatus(client) {
 
         const embed = new EmbedBuilder()
           .setColor('#2f3136')
-          .setTitle('Status da aplicação')
+          .setTitle('Status da aplicação: IP-Monitoring')
           .addFields(
-            { name: 'CPU', value: status.cpu ? status.cpu.toString() : 'N/A' },
-            { name: 'RAM', value: status.ram ? status.ram.toString() : 'N/A' },
-            { name: 'Status', value: status.status },
-            { name: 'Armazenamento', value: status.storage },
-            { name: 'Rede', value: status.network ? status.network.total : 'N/A' },
-            { name: 'Requisições', value: status.requests ? status.requests.toString() : 'N/A' },
-            { name: 'Uptime', value: status.uptime ? status.uptime.toString() : 'N/A' }
+            { name: '💻 CPU', value: status.cpu ? status.cpu.toString() : 'N/A' },
+            { name: '🧠 RAM', value: status.ram ? status.ram.toString() : 'N/A' },
+            { name: '🔒 Status', value: status.status },
+            { name: '💾 Armazenamento', value: status.storage },
+            { name: '🌐 Rede', value: status.network ? status.network.total : 'N/A' },
+            { name: '🔍 Requisições', value: status.requests ? status.requests.toString() : 'N/A' },
+            { name: '⏰ Uptime', value: status.uptime ? status.uptime.toString() : 'N/A' }
           )
-          .setTimestamp();
-
+          .setTimestamp()
+          .setFooter({
+            text: "Desenvolvido por: kevinfinalboss",
+            iconURL:
+                "https://avatars.githubusercontent.com/u/88814728?s=400&u=0bb6a0790758c0cc121c8aeafe2cd1237fa151f8&v=4",
+        })
         if (!message) {
           const messages = await channel.messages.fetch();
           await channel.bulkDelete(messages);
