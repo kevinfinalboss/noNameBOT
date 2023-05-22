@@ -1,28 +1,33 @@
 {
-  "name": "bot_base_dj14",
+  "name": "nonamebot",
   "version": "1.0.0",
-  "description": "base do bot discord.js V14",
+  "description": "noNameBOT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zheity/Nazuna-Template-DiscordV14.git"
+    "url": "git+https://github.com:kevinfinalboss/noNameBOT.git"
   },
-  "author": "Nazuna#2213",
+  "author": "kevin final boss",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Zheity/Nazuna-Template-DiscordV14/issues"
   },
-  "homepage": "https://github.com/Zheity/Nazuna-Template-DiscordV14#readme",
+  "homepage": "https://github.com:kevinfinalboss/noNameBOT.git",
   "dependencies": {
     "chalk": "^4.1.2",
+    "discord-gamecord": "^4.4.0",
     "discord-html-transcripts": "^3.1.4",
     "discord.js": "^14.9.0",
     "figlet": "^1.5.2",
     "mal-scraper": "^2.12.0",
+    "midjourney-client": "^1.0.8",
+    "mongodb": "^5.5.0",
     "mongoose": "^7.0.3",
-    "ms": "^2.1.3"
+    "ms": "^2.1.3",
+    "nodemon": "^2.0.22"
   }
 }
