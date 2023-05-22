@@ -4,6 +4,7 @@ const handler = require("./handler/index");
 const handlerError = require("./handler/AntiCrash");
 const updateApplicationStatus = require('./handler/status');
 const updateApplicationStatus2 = require('./handler/status2')
+const updateApplicationStatus3 = require('./handler/status3')
 
 const myIntents = [
   GatewayIntentBits.Guilds,
@@ -48,7 +49,8 @@ handlerError.antiCrash(client);
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
   updateApplicationStatus(client);
-  updateApplicationStatus2(client)
+  updateApplicationStatus2(client);
+  updateApplicationStatus3(client);
 });
 
 client.login(config.Bot_Token);
