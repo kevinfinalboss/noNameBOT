@@ -20,7 +20,7 @@ module.exports = {
             new ButtonBuilder()
             .setLabel("Website")
             .setStyle(ButtonStyle.Link)
-            .setURL("https://nazuna.pro"),
+            .setURL("https://kevindev.com.br"),
             new ButtonBuilder()
               .setLabel("Vote")
               .setStyle(ButtonStyle.Link)

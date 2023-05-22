@@ -3,7 +3,6 @@ const { inspect } = require("util");
 const config = require('../Config/config.json')
 const webhook = new WebhookClient({ url: config.Logs_Error });
 
-// AntiCrash
 const antiCrash = async function (client) {
     const embed = new EmbedBuilder()
         .setColor("Red");
