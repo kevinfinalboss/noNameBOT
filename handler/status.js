@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 const axios = require('axios');
 const config = require('../Config/config.json');
 const { EmbedBuilder } = require('@discordjs/builders');
@@ -22,6 +21,8 @@ async function updateApplicationStatus(client, channelId, appId, appName) {
           Authorization: apiKey
         }
       });
+
+      console.log(response.data);
 
       if (response.data.status === 'success') {
         const status = response.data.response;
@@ -52,7 +53,15 @@ async function updateApplicationStatus(client, channelId, appId, appName) {
           await channel.bulkDelete(messages);
           message = await channel.send({ embeds: [embed] });
         } else {
-          await message.edit({ embeds: [embed] });
+          try {
+            await message.edit({ embeds: [embed] });
+          } catch (error) {
+            if (error.code === 10008) {
+              message = await channel.send({ embeds: [embed] });
+            } else {
+              console.error("Erro ao editar a mensagem:", error);
+            }
+          }
         }
       } else {
         console.error('Erro ao obter o status da aplicação:', response.data);
