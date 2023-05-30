@@ -1,15 +1,13 @@
-const { EmbedBuilder } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const axios = require('axios');
 const config = require('../Config/config.json');
+const { EmbedBuilder } = require('@discordjs/builders');
 
-const channelId = '1110238720143147048';
 const interval = 10000;
-
 let message;
 
-async function updateApplicationStatus(client) {
+async function updateApplicationStatus(client, channelId, appId, appName) {
   const apiKey = config.apiKey;
-  const appId = config.appId;
 
   const channel = await client.channels.fetch(channelId);
   if (!channel) {
@@ -32,7 +30,6 @@ async function updateApplicationStatus(client) {
         const minutes = Math.floor(uptime / 60);
         
         const embed = new EmbedBuilder()
-          .setColor('#2f3136')
           .setTitle('Status da aplicação: IP-Monitoring')
           .setImage('https://cdn.dribbble.com/users/662779/screenshots/5122311/media/29ad313d90c405edb25c5fac6e40a899.gif')
           .addFields(
